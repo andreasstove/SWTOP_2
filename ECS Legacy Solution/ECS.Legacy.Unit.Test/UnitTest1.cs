@@ -33,7 +33,7 @@ namespace ECS.Legacy.Unit.Test
            // string resut = uut.Heater.TurnOn().ToString();
             //Assert.That(expectedResult,  Is.EqualTo(uut.Heater.TurnOn().ToString()));
             uut.Heater.TurnOn();
-            
+            //Det virker ikke
             Assert.AreEqual(expectedResult,Console.Out);
         }
     }
