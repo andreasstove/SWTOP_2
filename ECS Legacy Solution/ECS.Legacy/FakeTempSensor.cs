@@ -1,6 +1,6 @@
 ﻿namespace ECS.Legacy
 {
-    internal class FakeTempSensor : ITempSensor
+    public class FakeTempSensor : ITempSensor
     {
         //private Random gen = new Random();
         public int Temp { get; set;}
@@ -8,7 +8,6 @@
         {
             return Temp;
         }
-
         public bool RunSelfTest()
         {
             return true;
