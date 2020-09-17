@@ -24,17 +24,30 @@ namespace ECS.Legacy.Unit.Test
             Assert.That(result,Is.EqualTo(expectedResult));
         }
 
+        //[Test]
+        //public void ECS_Heater_PropertyInj()
+        //{
+        //    var uut = new ECS(20);
+        //    FakeHeater fakeheater = new FakeHeater();
+        //    string expectedResult = "Heater is on";
+        //   // string resut = uut.Heater.TurnOn().ToString();
+        //    //Assert.That(expectedResult,  Is.EqualTo(uut.Heater.TurnOn().ToString()));
+        //    uut.Heater.TurnOn();
+        //    //Det virker ikke stadig
+        //    Assert.AreEqual(expectedResult,Console.Out);
+        //}
+
         [Test]
-        public void ECS_Heater_PropertyInj()
+        public void ECS_Heater_On()
         {
             var uut = new ECS(20);
-            FakeHeater fakeheater = new FakeHeater();
-            string expectedResult = "Heater is on";
-           // string resut = uut.Heater.TurnOn().ToString();
-            //Assert.That(expectedResult,  Is.EqualTo(uut.Heater.TurnOn().ToString()));
-            uut.Heater.TurnOn();
-            //Det virker ikke stadig
-            Assert.AreEqual(expectedResult,Console.Out);
+            FakeHeater FakeH = new FakeHeater();
+            uut.Heater = FakeH;
+            FakeTempSensor FakeT = new FakeTempSensor();
+            FakeT.Temp = 10;
+            uut.TempSensor = FakeT;
+            uut.Regulate();
+            Assert.IsTrue(FakeH.IsHeaterOn);
         }
     }
 }
